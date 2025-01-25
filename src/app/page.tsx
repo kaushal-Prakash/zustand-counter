@@ -1,17 +1,18 @@
 'use client';
+import { countStore } from "@/store/store";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, {  } from "react";
 import 'tailwindcss/tailwind.css';
 
 export default function Home() {
-  const [count, setCount] = useState(0);
+  const count = countStore((state) => state.count);
 
   const handleIncrement = () => {
-    setCount(count + 1);
+    countStore.getState().increament();
   };
 
   const handleDecrement = () => {
-    setCount(count - 1);
+    countStore.getState().decreament();
   };
 
   return (
